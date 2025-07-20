@@ -266,7 +266,7 @@ const App = () => {
 
       {/* Footer */}
       <footer className="w-full text-center mt-12 py-4 text-gray-600 dark:text-gray-400 text-sm">
-        © 2025 Praveen Adapa. All rights reserved.
+        © 2025 Praveen Adapa1. All rights reserved.
       </footer>
     </div>
     
