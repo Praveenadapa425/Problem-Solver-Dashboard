@@ -84,7 +84,7 @@ const App = () => {
       // IMPORTANT: This URL must match where your Flask backend is running.
       // Assuming Flask is on http://localhost:5000
       // const response = await fetch('http://localhost:5000/api/get_stats', {
-      const response = await fetch('https://problem-solver-backend-g93q.onrender.com', {
+      const response = await fetch('https://problem-solver-backend-g93q.onrender.com/api/get_stats', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
