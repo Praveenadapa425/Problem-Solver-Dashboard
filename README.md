@@ -1,238 +1,176 @@
-# 💱 CodeSync
+Problem Solver Dashboard
+A full-stack web application that aggregates and displays problem-solving statistics from multiple coding platforms including LeetCode, GeeksforGeeks, CodeChef, and HackerRank.
+Show Image Show Image Show Image Show Image
+🚀 Features
 
-**Synchronize Your Coding Journey with Precision**
+Multi-Platform Integration: Fetch statistics from LeetCode, GeeksforGeeks, CodeChef, and HackerRank
+Real-time Data: Asynchronous scraping for fast data retrieval
+Dark Mode: Toggle between light and dark themes
+Responsive Design: Mobile-friendly interface built with Tailwind CSS
+Error Handling: Comprehensive error handling with user-friendly messages
+URL Validation: Client-side URL validation before submission
 
-CodeSync is a powerful platform designed for students and educational institutions to track, analyze, and manage coding profiles across multiple competitive programming platforms. It provides comprehensive analytics and insights to help students achieve their full potential in programming.
+🛠️ Tech Stack
+Frontend
 
-## 🚀 Features
+React (18.x) - User interface
+Tailwind CSS - Styling and responsive design
+Inter Font - Typography
 
-### 🎯 Core Features
-- **Multi-Platform Integration**: Sync data from LeetCode, CodeChef, HackerRank, and GeeksforGeeks
-- **Real-time Analytics**: Live dashboards showing coding progress and performance metrics
-- **Student Profiles**: Comprehensive profiles showcasing competitive programming activities
-- **Progress Tracking**: Detailed analytics to track growth and identify improvement areas
-- **Secure Authentication**: AWS Cognito-powered user authentication and management
+Backend
 
-### 📊 Platform Support
-- **LeetCode**: Problems solved, contest ratings, difficulty breakdowns
-- **CodeChef**: Contest ratings, problems solved, star rankings
-- **HackerRank**: Badges earned, skill assessments
-- **GeeksforGeeks**: Coding scores, streaks, institute rankings
+Flask - Web framework
+aiohttp - Asynchronous HTTP requests
+BeautifulSoup4 - Web scraping
+Flask-CORS - Cross-origin resource sharing
 
-## 🛠️ Technology Stack
+Deployment
 
-### Frontend
-- **HTML5** with semantic markup
-- **Tailwind CSS** for modern, responsive design
-- **JavaScript (ES6+)** for interactive functionality
-- **Bootstrap Icons** for consistent iconography
+Render - Backend hosting
+Gunicorn - WSGI server
 
-### Backend & Cloud Services
-- **AWS Amplify** for application hosting and CI/CD
-- **AWS Cognito** for user authentication and management
-- **AWS API Gateway** for RESTful API endpoints
-- **AWS Lambda** for serverless backend processing
+📁 Project Structure
+├── src/
+│   ├── App.js              # Main React component
+│   ├── index.js           # React app entry point
+│   ├── index.css          # Tailwind CSS imports
+│   └── ...
+├── public/
+│   ├── index.html         # HTML template
+│   └── favicon.png        # Favicon
+├── backend_app.py         # Flask backend application
+├── requirements.txt       # Python dependencies
+├── Procfile              # Render deployment config
+├── tailwind.config.js    # Tailwind configuration
+├── postcss.config.js     # PostCSS configuration
+├── .gitignore            # Git ignore rules
+└── README.md             # Project documentation
+🚀 Getting Started
+Prerequisites
 
-### APIs
-- Custom REST APIs for platform data aggregation
-- Real-time data synchronization from coding platforms
+Node.js (16.x or higher)
+Python (3.8 or higher)
+npm or yarn
+Git
 
-## 📁 Project Structure
+Frontend Setup
 
-```
-CodeSync/
-├── index.html              # Landing page with login/signup
-├── usernames.html          # Platform username input page
-├── results.html            # Statistics dashboard
-├── signup.html             # Dedicated signup page
-├── js/
-│   ├── amplify_config.js   # AWS Amplify configuration
-│   └── main.js            # Core JavaScript functionality
-└── README.md              # Project documentation
-```
+Clone the repository
+bashgit clone <your-repo-url>
+cd problem-solver-dashboard
 
-## 🚀 Getting Started
+Install dependencies
+bashnpm install
 
-### Prerequisites
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- AWS Account (for deployment)
-- Valid coding platform accounts for testing
+Install Tailwind CSS dependencies
+bashnpm install -D tailwindcss postcss autoprefixer
 
-### Local Development
+Start the development server
+bashnpm start
+The app will be available at http://localhost:3000
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/codesync.git
-   cd codesync
-   ```
+Backend Setup
 
-2. **Configure AWS Amplify**
-   - Update `js/amplify_config.js` with your AWS Cognito details:
-   ```javascript
-   window.amplifyConfig = {
-     Auth: {
-       region: "your-aws-region",
-       userPoolId: "your-user-pool-id",
-       userPoolWebClientId: "your-client-id",
-       authenticationFlowType: "USER_PASSWORD_AUTH"
-     }
-   };
-   ```
+Create a virtual environment
+bashpython -m venv venv
 
-3. **Serve the application**
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js (http-server)
-   npx http-server
-   
-   # Using Live Server (VS Code extension)
-   # Right-click index.html → "Open with Live Server"
-   ```
+# On Windows
+venv\Scripts\activate
 
-4. **Access the application**
-   - Open your browser and navigate to `http://localhost:8000`
+# On macOS/Linux
+source venv/bin/activate
 
-### Production Deployment
+Install Python dependencies
+bashpip install -r requirements.txt
 
-1. **Deploy to AWS Amplify**
-   ```bash
-   # Install Amplify CLI
-   npm install -g @aws-amplify/cli
-   
-   # Initialize Amplify project
-   amplify init
-   
-   # Add hosting
-   amplify add hosting
-   
-   # Deploy
-   amplify publish
-   ```
+Run the Flask development server
+bashpython backend_app.py
+The backend will be available at http://localhost:5000
 
-2. **Environment Variables**
-   - Configure your production API endpoints
-   - Update Cognito User Pool settings
-   - Set up custom domain (optional)
+🔧 Configuration
+Backend API Endpoint
+The frontend is configured to use the production backend:
+javascriptconst response = await fetch('https://problem-solver-backend-g93q.onrender.com/api/get_stats', {
+For local development, uncomment the localhost URL in src/App.js:
+javascript// const response = await fetch('http://localhost:5000/api/get_stats', {
+Environment Variables
+No additional environment variables are required for basic setup.
+📱 Usage
 
-## 🔧 Configuration
+Enter Profile URLs: Input your profile URLs for any combination of supported platforms:
 
-### AWS Cognito Setup
-1. Create a User Pool in AWS Cognito
-2. Configure app client with following settings:
-   - Auth Flow: `USER_PASSWORD_AUTH`
-   - Required attributes: email, name, preferred_username
-   - Auto-verify email addresses
+LeetCode: https://leetcode.com/u/your_username/
+GeeksforGeeks: https://www.geeksforgeeks.org/user/your_username/
+CodeChef: https://www.codechef.com/users/your_username
+HackerRank: https://www.hackerrank.com/profile/your_username
 
-### API Configuration
-The application uses two main API endpoints:
-- **Main API**: `https://8teu07es5h.execute-api.us-east-1.amazonaws.com/prob/get-score`
-- **GFG API**: `https://1irslt4qe5.execute-api.us-east-1.amazonaws.com/prob/get-score`
 
-## 📖 Usage
+Get Statistics: Click "Get Stats" to fetch your problem-solving statistics
+View Results: See your aggregated statistics including:
 
-### For Students
+Problems solved per platform
+Total problems solved across all platforms
+Badges earned (for HackerRank)
 
-1. **Sign Up/Login**
-   - Create an account or login with existing credentials
-   - Verify your email address
 
-2. **Add Platform Usernames**
-   - Enter your usernames for LeetCode, CodeChef, HackerRank
-   - Optionally add GeeksforGeeks username
 
-3. **View Statistics**
-   - Access comprehensive dashboard with your coding stats
-   - Track progress across all platforms
-   - Monitor improvement over time
+🎨 Features in Detail
+Dark Mode
+Toggle between light and dark themes using the button in the top-right corner.
+Responsive Design
+The application is fully responsive and works on:
 
-### For Administrators
+Desktop computers
+Tablets
+Mobile phones
 
-1. **User Management**
-   - Access AWS Cognito console for user administration
-   - Monitor student registrations and activity
+Error Handling
 
-2. **Analytics**
-   - View aggregated statistics across all students
-   - Generate reports for institutional use
+Invalid URL format detection
+Network error handling
+Profile not found errors
+Private profile notifications
 
-## 🔐 Security Features
+🚀 Deployment
+Backend (Render)
+The backend is deployed on Render using the provided Procfile:
+web: gunicorn backend_app:app
+Frontend
+The frontend can be deployed to platforms like:
 
-- **JWT Token Authentication**: Secure API access with AWS Cognito tokens
-- **Input Validation**: Client-side and server-side validation
-- **HTTPS Enforcement**: All communications encrypted
-- **Cross-Origin Resource Sharing (CORS)**: Properly configured API access
+Vercel
+Netlify
+GitHub Pages
 
-## 🎨 UI/UX Features
+🤝 Contributing
 
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Dark Theme**: Modern dark mode interface
-- **Loading States**: Skeleton screens and loading indicators
-- **Error Handling**: User-friendly error messages and retry mechanisms
-- **Smooth Animations**: CSS transitions and hover effects
+Fork the repository
+Create a feature branch (git checkout -b feature/amazing-feature)
+Commit your changes (git commit -m 'Add some amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Open a Pull Request
 
-## 🧪 Testing
+🐛 Known Issues
 
-### Manual Testing
-1. Test user registration and email verification
-2. Verify login functionality
-3. Test platform data fetching with valid usernames
-4. Check error handling with invalid usernames
-5. Test responsive design on different screen sizes
+Some platforms may have rate limiting
+Private profiles cannot be accessed
+Platform UI changes may affect scraping accuracy
 
-### Platform Username Testing
-Use these sample usernames for testing:
-- **LeetCode**: Any valid LeetCode username
-- **CodeChef**: Any valid CodeChef handle
-- **HackerRank**: Any valid HackerRank username
-- **GeeksforGeeks**: Any valid GFG profile username
+📝 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+👨‍💻 Author
+Praveen Adapa
 
-## 🤝 Contributing
+GitHub: https://github.com/Praveenadapa425
+LinkedIn: https://www.linkedin.com/in/praveen-adapa-162179290/
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+🙏 Acknowledgments
 
-### Coding Standards
-- Use consistent indentation (2 spaces)
-- Follow semantic HTML5 practices
-- Use meaningful variable and function names
-- Comment complex logic
-- Test cross-browser compatibility
+Thanks to all the coding platforms for providing public profile data
+React and Flask communities for excellent documentation
+Tailwind CSS for the utility-first CSS framework
 
-## 📝 License
+📞 Support
+If you encounter any issues or have questions, please open an issue on GitHub.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Developer
-
-**Praveen Adapa**
-- LinkedIn: [praveen-adapa-162179290](https://www.linkedin.com/in/praveen-adapa-162179290/)
-- GitHub: [Your GitHub Profile]
-
-## 🙏 Acknowledgments
-
-- AWS for cloud infrastructure
-- Tailwind CSS for styling framework
-- Bootstrap Icons for iconography
-- All coding platforms for providing public APIs
-
-## 📞 Support
-
-For support, email support@codesync.com or create an issue on GitHub.
-
-## 🗺️ Roadmap
-
-- [ ] Add more coding platforms (AtCoder, TopCoder)
-- [ ] Implement progress tracking over time
-- [ ] Add social features and leaderboards
-- [ ] Mobile app development
-- [ ] Advanced analytics and insights
-- [ ] Integration with college management systems
-
----
-
-**Made with ❤️ for the coding community**
+⭐ Star this repository if you find it helpful!
