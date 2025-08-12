@@ -1,176 +1,199 @@
-Problem Solver Dashboard
-A full-stack web application that aggregates and displays problem-solving statistics from multiple coding platforms including LeetCode, GeeksforGeeks, CodeChef, and HackerRank.
-Show Image Show Image Show Image Show Image
-🚀 Features
+Problem Solver Dashboard: A Comprehensive Problem-Solving Statistics Aggregator
+💡 Overview
+The Problem Solver Dashboard is a powerful full-stack web application designed to centralize and visualize your problem-solving statistics from various competitive programming platforms. This dashboard offers a unified view of your progress across LeetCode, GeeksforGeeks, CodeChef, and HackerRank, helping you track your achievements efficiently. Built with a focus on real-time data, a responsive design, and robust error handling, it provides a seamless and insightful user experience.
 
-Multi-Platform Integration: Fetch statistics from LeetCode, GeeksforGeeks, CodeChef, and HackerRank
-Real-time Data: Asynchronous scraping for fast data retrieval
-Dark Mode: Toggle between light and dark themes
-Responsive Design: Mobile-friendly interface built with Tailwind CSS
-Error Handling: Comprehensive error handling with user-friendly messages
-URL Validation: Client-side URL validation before submission
+✨ Key Features
+Multi-Platform Integration: Seamlessly fetches and displays your problem-solving statistics from LeetCode, GeeksforGeeks, CodeChef, and HackerRank.
 
-🛠️ Tech Stack
+Real-time Data Retrieval: Employs asynchronous web scraping techniques to ensure rapid and up-to-date data acquisition.
+
+Intuitive User Interface:
+
+Dark Mode: Easily toggle between light and dark themes for enhanced viewing comfort.
+
+Responsive Design: Crafted with Tailwind CSS to provide an optimal experience across all devices, including desktops, tablets, and mobile phones.
+
+Robust Error Handling: Provides comprehensive error handling with clear, user-friendly messages for scenarios like invalid URLs, network issues, profile not found, and private profiles.
+
+Client-Side URL Validation: Ensures that profile URLs are validated for correct format before submission, preventing unnecessary backend calls.
+
+🛠️ Technical Stack
 Frontend
+React (18.x): Powers the dynamic and interactive user interface.
 
-React (18.x) - User interface
-Tailwind CSS - Styling and responsive design
-Inter Font - Typography
+Tailwind CSS: Utilized for utility-first styling, enabling rapid UI development and ensuring responsiveness.
+
+Inter Font: Provides a modern and highly legible typography for the dashboard.
 
 Backend
+Flask: A lightweight and flexible Python web framework serving as the API backbone.
 
-Flask - Web framework
-aiohttp - Asynchronous HTTP requests
-BeautifulSoup4 - Web scraping
-Flask-CORS - Cross-origin resource sharing
+aiohttp: Handles asynchronous HTTP requests, crucial for efficient web scraping.
+
+BeautifulSoup4: Parses HTML and XML documents, facilitating data extraction from coding platforms.
+
+Flask-CORS: Manages Cross-Origin Resource Sharing, enabling secure communication between the frontend and backend.
 
 Deployment
+Render: Chosen for hosting the backend application, ensuring reliable access.
 
-Render - Backend hosting
-Gunicorn - WSGI server
+Gunicorn: A Python WSGI HTTP Server for UNIX, used to run the Flask application in production.
 
 📁 Project Structure
-├── src/
-│   ├── App.js              # Main React component
-│   ├── index.js           # React app entry point
-│   ├── index.css          # Tailwind CSS imports
-│   └── ...
-├── public/
-│   ├── index.html         # HTML template
-│   └── favicon.png        # Favicon
-├── backend_app.py         # Flask backend application
-├── requirements.txt       # Python dependencies
-├── Procfile              # Render deployment config
-├── tailwind.config.js    # Tailwind configuration
-├── postcss.config.js     # PostCSS configuration
-├── .gitignore            # Git ignore rules
-└── README.md             # Project documentation
-🚀 Getting Started
-Prerequisites
+The project is organized into a clear and maintainable structure:
 
-Node.js (16.x or higher)
-Python (3.8 or higher)
+├── src/
+│   ├── App.js          # Main React component
+│   ├── index.js        # React application entry point
+│   ├── index.css       # Tailwind CSS imports
+│   └── ...
+├── public/
+│   ├── index.html      # HTML template
+│   └── favicon.png     # Favicon for the application
+├── backend_app.py      # Flask backend application
+├── requirements.txt    # Python dependencies
+├── Procfile            # Render deployment configuration
+├── tailwind.config.js  # Tailwind CSS configuration
+├── postcss.config.js   # PostCSS configuration
+├── .gitignore          # Git ignore rules
+└── README.md           # Project documentation
+
+🚀 Getting Started
+To get the Problem Solver Dashboard up and running on your local machine, follow these steps:
+
+Prerequisites
+Ensure you have the following installed:
+
+Node.js: Version 16.x or higher
+
+Python: Version 3.8 or higher
+
 npm or yarn
+
 Git
 
 Frontend Setup
+Clone the repository:
 
-Clone the repository
-bashgit clone <your-repo-url>
+git clone <your-repo-url>
 cd problem-solver-dashboard
 
-Install dependencies
-bashnpm install
+Install dependencies:
 
-Install Tailwind CSS dependencies
-bashnpm install -D tailwindcss postcss autoprefixer
+npm install
 
-Start the development server
-bashnpm start
-The app will be available at http://localhost:3000
+Install Tailwind CSS dependencies:
+
+npm install -D tailwindcss postcss autoprefixer
+
+Start the development server:
+
+npm start
+
+The frontend application will now be accessible at http://localhost:3000.
 
 Backend Setup
+Create a virtual environment:
 
-Create a virtual environment
-bashpython -m venv venv
+On Windows:
 
-# On Windows
+python -m venv venv
 venv\Scripts\activate
 
-# On macOS/Linux
+On macOS/Linux:
+
+python -m venv venv
 source venv/bin/activate
 
-Install Python dependencies
-bashpip install -r requirements.txt
+Install Python dependencies:
 
-Run the Flask development server
-bashpython backend_app.py
-The backend will be available at http://localhost:5000
+pip install -r requirements.txt
+
+Run the Flask development server:
+
+python backend_app.py
+
+The backend API will be available at http://localhost:5000.
 
 🔧 Configuration
 Backend API Endpoint
-The frontend is configured to use the production backend:
-javascriptconst response = await fetch('https://problem-solver-backend-g93q.onrender.com/api/get_stats', {
-For local development, uncomment the localhost URL in src/App.js:
-javascript// const response = await fetch('http://localhost:5000/api/get_stats', {
-Environment Variables
-No additional environment variables are required for basic setup.
-📱 Usage
+The frontend is pre-configured to communicate with the production backend endpoint:
 
-Enter Profile URLs: Input your profile URLs for any combination of supported platforms:
+const response = await fetch('https://problem-solver-backend-g93q.onrender.com/api/get_stats', { /* ... */ });
+
+For local development, you can easily switch to the local backend by uncommenting the relevant line in src/App.js:
+
+// const response = await fetch('http://localhost:5000/api/get_stats', { /* ... */ });
+
+Environment Variables
+No additional environment variables are required for basic setup and operation.
+
+📱 Usage
+Using the Problem Solver Dashboard is straightforward:
+
+Enter Profile URLs: Input your profile URLs for any combination of the supported platforms. Examples:
 
 LeetCode: https://leetcode.com/u/your_username/
+
 GeeksforGeeks: https://www.geeksforgeeks.org/user/your_username/
+
 CodeChef: https://www.codechef.com/users/your_username
+
 HackerRank: https://www.hackerrank.com/profile/your_username
 
+Get Statistics: Click the "Get Stats" button to initiate the data retrieval process.
 
-Get Statistics: Click "Get Stats" to fetch your problem-solving statistics
-View Results: See your aggregated statistics including:
+View Results: The dashboard will display your aggregated problem-solving statistics, including:
 
-Problems solved per platform
-Total problems solved across all platforms
-Badges earned (for HackerRank)
+Number of problems solved per platform.
 
+Total problems solved across all integrated platforms.
 
-
-🎨 Features in Detail
-Dark Mode
-Toggle between light and dark themes using the button in the top-right corner.
-Responsive Design
-The application is fully responsive and works on:
-
-Desktop computers
-Tablets
-Mobile phones
-
-Error Handling
-
-Invalid URL format detection
-Network error handling
-Profile not found errors
-Private profile notifications
-
-🚀 Deployment
-Backend (Render)
-The backend is deployed on Render using the provided Procfile:
-web: gunicorn backend_app:app
-Frontend
-The frontend can be deployed to platforms like:
-
-Vercel
-Netlify
-GitHub Pages
+Badges earned (specifically for HackerRank profiles).
 
 🤝 Contributing
+We welcome contributions! To contribute to the Problem Solver Dashboard, please follow these guidelines:
 
-Fork the repository
-Create a feature branch (git checkout -b feature/amazing-feature)
-Commit your changes (git commit -m 'Add some amazing feature')
-Push to the branch (git push origin feature/amazing-feature)
-Open a Pull Request
+Fork the repository.
+
+Create a new feature branch:
+
+git checkout -b feature/your-feature-name
+
+Commit your changes with descriptive messages:
+
+git commit -m 'Add a new feature for X'
+
+Push your branch to your fork:
+
+git push origin feature/your-feature-name
+
+Open a Pull Request against the main repository.
 
 🐛 Known Issues
+While the dashboard is designed for reliability, please be aware of these potential limitations:
 
-Some platforms may have rate limiting
-Private profiles cannot be accessed
-Platform UI changes may affect scraping accuracy
+Rate Limiting: Some platforms may impose rate limits, which could temporarily affect data retrieval.
+
+Private Profiles: Data cannot be accessed from private coding profiles due to platform restrictions.
+
+Scraping Accuracy: Changes in platform UI/HTML structure may occasionally impact the accuracy of web scraping.
 
 📝 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is open-source and distributed under the MIT License. For more details, see the LICENSE file in the repository.
+
 👨‍💻 Author
 Praveen Adapa
 
 GitHub: https://github.com/Praveenadapa425
+
 LinkedIn: https://www.linkedin.com/in/praveen-adapa-162179290/
 
 🙏 Acknowledgments
+We extend our gratitude to:
 
-Thanks to all the coding platforms for providing public profile data
-React and Flask communities for excellent documentation
-Tailwind CSS for the utility-first CSS framework
+All the coding platforms for providing public profile data.
 
-📞 Support
-If you encounter any issues or have questions, please open an issue on GitHub.
+The vibrant React and Flask communities for their excellent documentation and support.
 
-⭐ Star this repository if you find it helpful!
+Tailwind CSS for its innovative utility-first approach to styling.
